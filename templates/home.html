@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="https://i.imgur.com/7d8QAYt.png">
+<title>SituationPlanet</title>
+<style>
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+  }
+  .neumorphic-box {
+    width: 400px;
+    padding: 30px;
+    background-color: #000;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3),
+                -10px -10px 30px rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .textbox {
+    width: 100%;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+  }
+  .text-below {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2),
+                -4px -4px 10px rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkling 5s infinite;
+  }
+  @keyframes twinkling {
+    0%, 100% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+  }
+  .navbar {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 40px;
+  }
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+  }
+  .table-container {
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #444;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(odd) {
+      color: white;
+    }
+</style>
+</head>
+<body>
+  <div class="stars">
+    <div class="star" style="top: 10%; left: 20%;"></div>
+    <div class="star" style="top: 20%; left: 70%;"></div>
+    <div class="star" style="bottom: 30%; left: 40%;"></div>
+    <!-- Add more stars as needed -->
+  </div>
+  <div style="display: block;">
+    <div class="neumorphic-box">
+      <input type="text" class="textbox" placeholder="Paste an abstract Incident Description...">
+      <br/>
+      <div class="table-container">
+      <h4 style="color:white">Root Causes and Resolutions</h4>
+      <table>
+        <tr>
+          <th>Category</th>
+          <th>Cause</th>
+          <th>Resolution</th>
+        </tr>
+        <!-- JavaScript will populate data here -->
+      </table>
+    </div>
+      <div class="text-below">Category: <span class="cat"></span></div>
+      <button class="button">Submit</button>
+    </div>
+    <br/><br/><br/><br/>
+    <div class="navbar">
+      <a href="javascript:location.reload()" class="nav-link">Resolver</a>
+      <a href="http://localhost:5000/kbase" target="_blank" class="nav-link">View KBase</a>
+    </div>
+  </div>
+
+  <script>
+    // Function to handle the submit button click
+    function handleSubmit() {
+        const submitButton = document.querySelector('.button');
+        submitButton.disabled = true;
+        submitButton.style.display = 'none';
+
+        const inputBox = document.querySelector('.textbox');
+        const requestData = { data: inputBox.value };
+
+        // Make an API request to the endpoint
+        fetch('http://localhost:5000/resolve_incident', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Call function to parse and render JSON data
+            renderData(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    // Function to render a textarea and button for null resolutions
+    function renderTextArea(cell, cause) {
+        const textarea = document.createElement('textarea');
+        textarea.name = cause;
+        textarea.placeholder = 'Enter resolution...';
+
+        const submitButton = document.createElement('button');
+        submitButton.textContent = 'Add to KnowledgeBase';
+        submitButton.addEventListener('click', function() {
+            const resolution = textarea.value;
+            if (resolution) {
+                // Make a POST request to update the resolution
+                fetch('http://localhost:5000/update_rcaKB', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ data: { cause, resolution } })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle response if needed
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        });
+
+        cell.appendChild(textarea);
+        cell.appendChild(submitButton);
+    }
+
+    // Function to parse and render JSON data
+    function renderData(jsonData) {
+        console.log(jsonData);
+        const tableContainer = document.querySelector('.table-container table');
+        const catSpan = document.querySelector('.cat');
+        catSpan.innerHTML = jsonData["Category"].type;
+
+        jsonData["Causes and Resolutions"].forEach(item => {
+            const row = document.createElement('tr');
+            const categoryCell = document.createElement('td');
+            const causeCell = document.createElement('td');
+            const resolutionCell = document.createElement('td');
+
+            categoryCell.textContent = jsonData.Category.type;
+            causeCell.textContent = item.cause;
+
+            if (item.resolution === null) {
+                renderTextArea(resolutionCell, item.cause);
+            } else {
+                resolutionCell.textContent = item.resolution;
+            }
+
+            row.appendChild(categoryCell);
+            row.appendChild(causeCell);
+            row.appendChild(resolutionCell);
+
+            tableContainer.appendChild(row);
+        });
+    }
+
+    // Attach event listener to the submit button
+    const submitButton = document.querySelector('.button');
+    submitButton.addEventListener('click', handleSubmit);
+</script>
+
+
+</body>
+</html>

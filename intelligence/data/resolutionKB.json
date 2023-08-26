@@ -1,0 +1,358 @@
+{
+    "calculators": {
+        "Network Connection Failure": {
+            "severity": 0.6,
+            "probability": 0.7,
+            "exposure": 0.5
+        },
+        "Firewall Blocking": {
+            "severity": 0.4,
+            "probability": 0.4,
+            "exposure": 0.3
+        },
+        "Database Connection Failure": {
+            "severity": 0.6,
+            "probability": 0.6,
+            "exposure": 0.4
+        },
+        "Disk Space Exhaustion": {
+            "severity": 0.4,
+            "probability": 0.5,
+            "exposure": 0.6
+        },
+        "API Miscommunication": {
+            "severity": 0.4,
+            "probability": 0.5,
+            "exposure": 0.4
+        },
+        "File System Errors": {
+            "severity": 0.4,
+            "probability": 0.6,
+            "exposure": 0.3
+        },
+        "Server Overload": {
+            "severity": 0.6,
+            "probability": 0.7,
+            "exposure": 0.4
+        },
+        "Software Bug": {
+            "severity": 0.4,
+            "probability": 0.6,
+            "exposure": 0.5
+        },
+        "User Error": {
+            "severity": 1,
+            "probability": 0.3,
+            "exposure": 0.7
+        },
+        "Hardware Failure": {
+            "severity": 0.6,
+            "probability": 0.6,
+            "exposure": 0.6
+        },
+        "Configuration Error": {
+            "severity": 0.4,
+            "probability": 0.5,
+            "exposure": 0.4
+        },
+        "Power Outage": {
+            "severity": 0.6,
+            "probability": 0.6,
+            "exposure": 0.5
+        },
+        "Application Crash": {
+            "severity": 0.4,
+            "probability": 0.4,
+            "exposure": 0.3
+        },
+        "Data Corruption": {
+            "severity": 0.6,
+            "probability": 0.5,
+            "exposure": 0.5
+        },
+        "Unauthorized Access": {
+            "severity": 0.6,
+            "probability": 0.4,
+            "exposure": 0.6
+        },
+        "Memory Leak": {
+            "severity": 0.4,
+            "probability": 0.5,
+            "exposure": 0.4
+        },
+        "Service Outage": {
+            "severity": 0.6,
+            "probability": 0.7,
+            "exposure": 0.6
+        },
+        "Data Loss": {
+            "severity": 0.6,
+            "probability": 0.5,
+            "exposure": 0.7
+        },
+        "Authentication Failure": {
+            "severity": 0.4,
+            "probability": 0.4,
+            "exposure": 0.3
+        },
+        "Network Latency": {
+            "severity": 0.4,
+            "probability": 0.5,
+            "exposure": 0.4
+        },
+        "System Hang": {
+            "severity": 0.4,
+            "probability": 0.4,
+            "exposure": 0.3
+        },
+        "Expired SSL Certificate": {
+            "severity": 0.4,
+            "probability": 0.3,
+            "exposure": 0.2
+        },
+        "Infrastructure Failure": {
+            "severity": 0.6,
+            "probability": 0.6,
+            "exposure": 0.6
+        },
+        "Resource Contention": {
+            "severity": 0.6,
+            "probability": 0.7,
+            "exposure": 0.6
+        },
+        "Overlapping Transfer Jobs": {
+            "severity": 0.4,
+            "probability": 0.5,
+            "exposure": 0.4
+        },
+        "Insufficient Permissions": {
+            "severity": 0.4,
+            "probability": 0.4,
+            "exposure": 0.5
+        },
+        "Poor Memory Deallocation": {
+            "severity": 0.4,
+            "probability": 0.6,
+            "exposure": 0.4
+        },
+        "Excessive Memory Consumption": {
+            "severity": 0.6,
+            "probability": 0.6,
+            "exposure": 0.5
+        },
+        "Directory Not Found": {
+            "severity": 0.4,
+            "probability": 0.4,
+            "exposure": 0.3
+        },
+        "LOG4J": {
+            "severity": 0.9,
+            "probability": 0.4,
+            "exposure": 1
+        }
+    },
+    "algorithms": {
+        "Network Connection Failure": [
+            "Check cable connections of servers.",
+            "Attempt SSH connection to diagnose the issue.",
+            "Verify network configurations on the affected servers."
+        ],
+        "Firewall Blocking": [
+            "Review firewall rules and policies.",
+            "Identify the source and destination of blocked traffic.",
+            "Adjust firewall settings to allow necessary traffic."
+        ],
+        "Database Connection Failure": [
+            "Check database server status and connectivity.",
+            "Review database configuration and credentials.",
+            "Restart the database server if needed."
+        ],
+        "Disk Space Exhaustion": [
+            "Identify and delete unnecessary files and logs.",
+            "Move or archive data to free up disk space.",
+            "Monitor disk space regularly and implement a cleanup strategy."
+        ],
+        "API Miscommunication": [
+            "Review API documentation and expected requests.",
+            "Inspect request logs and responses for inconsistencies.",
+            "Contact API provider for assistance if necessary."
+        ],
+        "File System Errors": [
+            "Check permissions and ownership of affected directories.",
+            "Create missing directories and set correct permissions.",
+            "Monitor file system health and implement regular checks."
+        ],
+        "Server Overload": [
+            "Analyze system resource usage to identify bottlenecks.",
+            "Optimize queries or processes that contribute to the overload.",
+            "Consider scaling resources or distributing load if necessary."
+        ],
+        "Software Bug": [
+            "Isolate the bug by reproducing the issue in a controlled environment.",
+            "Develop and test a fix for the bug.",
+            "Deploy the bug fix and monitor for any regression."
+        ],
+        "User Error": [
+            "Identify the user error through logs or user reports.",
+            "Educate users on proper usage and best practices.",
+            "Implement safeguards to prevent similar errors in the future."
+        ],
+        "Hardware Failure": [
+            "Identify the malfunctioning hardware component.",
+            "Replace or repair the faulty hardware component.",
+            "Perform hardware diagnostics and regular maintenance."
+        ],
+        "Configuration Error": [
+            "Review configuration settings for correctness.",
+            "Compare configurations against established best practices.",
+            "Implement version control and backup of configuration files."
+        ],
+        "Power Outage": [
+            "Verify the power source and connections.",
+            "Implement uninterruptible power supply (UPS) systems.",
+            "Perform regular power system maintenance and testing."
+        ],
+        "Application Crash": [
+            "Review application logs for crash details.",
+            "Identify and address potential memory leaks or instability.",
+            "Update or patch the application to the latest stable version."
+        ],
+        "Data Corruption": [
+            "Identify the affected data files or databases.",
+            "Restore data from backups or unaffected sources.",
+            "Implement data integrity checks and redundancy measures."
+        ],
+        "Unauthorized Access": [
+            "Investigate unauthorized access attempts and patterns.",
+            "Strengthen access controls and authentication mechanisms.",
+            "Implement intrusion detection and monitoring systems."
+        ],
+        "Memory Leak": [
+            "Monitor memory usage patterns to identify leaks.",
+            "Profile and analyze memory allocation and deallocation.",
+            "Release memory resources through proper coding practices."
+        ],
+        "Service Outage": [
+            "Identify the affected service and its components.",
+            "Restart or redeploy the service to restore functionality.",
+            "Implement failover and redundancy for critical services."
+        ],
+        "Data Loss": [
+            "Identify the cause of data loss and affected data sets.",
+            "Restore data from backups or secondary sources.",
+            "Implement regular backups and disaster recovery procedures."
+        ],
+        "Authentication Failure": [
+            "Review authentication logs for failed attempts.",
+            "Check user credentials and directory server health.",
+            "Implement multi-factor authentication and account lockout."
+        ],
+        "Network Latency": [
+            "Monitor network traffic and latency patterns.",
+            "Identify network bottlenecks or congestion points.",
+            "Optimize network routing and bandwidth allocation."
+        ],
+        "System Hang": [
+            "Identify potential causes such as resource exhaustion.",
+            "Collect system logs and performance data for analysis.",
+            "Reboot the system if necessary and implement optimizations."
+        ],
+        "Expired SSL Certificate": [
+            "Identify the affected service using the expired certificate.",
+            "Generate or obtain a new SSL certificate.",
+            "Update and configure the new certificate for the service."
+        ],
+        "Infrastructure Failure": [
+            "Identify the failing infrastructure component (e.g., server, switch).",
+            "Replace or repair the faulty component.",
+            "Implement redundancy and monitoring for critical infrastructure."
+        ],
+        "Resource Contention": [
+            "Identify the resource(s) in contention (e.g., CPU, memory).",
+            "Analyze processes and workloads causing the contention.",
+            "Implement resource optimization strategies or scaling."
+        ],
+        "Overlapping Transfer Jobs": [
+            "Review job schedules and configurations.",
+            "Implement job queue management to prevent overlap.",
+            "Monitor and adjust job timings based on workload."
+        ],
+        "Insufficient Permissions": [
+            "Review access control settings for affected resources.",
+            "Adjust permissions to ensure required access levels.",
+            "Implement proper role-based access control (RBAC)."
+        ],
+        "Poor Memory Deallocation": [
+            "Analyze application code for proper memory deallocation.",
+            "Use memory profiling tools to identify leaks.",
+            "Refactor code to ensure proper memory management."
+        ],
+        "Excessive Memory Consumption": [
+            "Identify the application or process consuming excess memory.",
+            "Analyze memory usage patterns and resource leaks.",
+            "Optimize code, reduce memory footprint, and monitor usage."
+        ],
+        "Directory Not Found": [
+            "Check directory paths in the application or scripts.",
+            "Verify existence and correctness of specified directories.",
+            "Implement error handling and directory validation."
+        ],
+        "Incompatible Library Versions": [
+            "Identify the incompatible library versions causing the issue.",
+            "Review library documentation for compatibility guidelines.",
+            "Upgrade or downgrade libraries to compatible versions.",
+            "Test the application thoroughly to ensure stability."
+        ],
+        "Missing Required Libraries": [
+            "Check the application's dependencies for missing libraries.",
+            "Review project configuration files for correct dependencies.",
+            "Install the missing libraries using a package manager or manual installation.",
+            "Validate the application's behavior after adding the libraries."
+        ],
+        "Incorrect log level configuration": [
+            "Inspect the Log4J configuration files for log level settings.",
+            "Ensure that log levels are set appropriately for desired verbosity.",
+            "Update the configuration to match the desired log level needs.",
+            "Test the application with the new log level configuration."
+        ],
+        "Misconfigured log appenders": [
+            "Review the Log4J configuration for configured appenders.",
+            "Check the syntax and settings of each appender configuration.",
+            "Adjust appender settings to match the desired logging destinations.",
+            "Test the logging functionality with the corrected appender settings."
+        ],
+        "Incompatible Log4J library version": [
+            "Determine the compatible Log4J version for your application.",
+            "Check the Log4J release notes for compatibility information.",
+            "Update the Log4J library to the compatible version.",
+            "Verify that the application functions properly with the updated library."
+        ],
+        "Conflicts with other logging frameworks": [
+            "Identify the conflicting logging frameworks used in the application.",
+            "Review documentation or resources for guidance on framework conflicts.",
+            "Resolve conflicts by choosing one logging framework or managing dependencies.",
+            "Retest the application to confirm that logging works as intended."
+        ],
+        "Log4J library bugs": [
+            "Research known bugs and issues with the current Log4J library version.",
+            "Check for available bug fixes or patches from the Log4J community.",
+            "Apply relevant bug fixes or patches to your Log4J library.",
+            "Validate the application to ensure that the identified bugs are resolved."
+        ],
+        "Interactions with specific code paths": [
+            "Examine the code paths where Log4J issues are occurring.",
+            "Review the interactions and dependencies of those code paths.",
+            "Perform code analysis and debugging to pinpoint the problematic areas.",
+            "Modify or refactor code as needed to resolve the Log4J issues."
+        ],
+        "Connection Issues": [
+            "Check Network Connectivity",
+            "Check Status of External Server",
+            "Ping Test Internal, as well as External Server",
+            "Ensure DNS Server Up-To-Date"
+        ],
+        "SSH Key Mismatch": [
+            "Request user to redeploy SSH Keys"
+        ]
+    }
+}

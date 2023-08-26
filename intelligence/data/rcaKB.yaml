@@ -1,0 +1,211 @@
+Incidents:
+  - Incident: File not reaching downstream application folder.
+    Category: FTR
+    Cause:
+      - API Miscommunication:
+        - Network Issues - External
+        - Network Issues - Internal
+      - File System Errors:
+        - Insufficient Permissions
+        - Directory Path Not Found
+
+  - Incident: Hyperion Essbase script fails to push files to target folder.
+    Category: FTR
+    Cause:
+      - Deadlock in File Transfer:
+        - Overlapping Transfer Jobs
+        - Resource Contention
+
+  - Incident: Upstream to downstream FTR fails due to Keys.
+    Category: FTR
+    Cause:
+      - SSH Key Mismatch:
+        - Incorrect Key Pair
+        - Key Expiry
+
+  - Incident: Files created in upstream but 0 kb files in downstream.
+    Category: FTR
+    Cause:
+      - Connection Issues:
+        - Network Connection Failure
+        - Firewall Blocking
+
+  - Incident: OPMN Services down in Hyperion Essbase server.
+    Category: Essbase
+    Cause:
+      - Service Failure:
+        - OPMN Services Stopped
+        - Configuration Error
+
+  - Incident: Essbase server switched to backup node unexpectedly.
+    Category: Essbase
+    Cause:
+      - Node Switching:
+        - Configuration Mismatch
+        - Primary Node Failure
+
+  - Incident: Essbase config file corrupted.
+    Category: Essbase
+    Cause:
+      - File Corruption:
+        - Sudden System Shutdown
+        - Disk Errors
+
+  - Incident: Servers inaccessible due to Diskspace issue.
+    Category: Database
+    Cause:
+      - Disk Space Full:
+        - Large Log Files
+        - Data Growth
+
+  - Incident: Treatments fail due to no space in Temp DB.
+    Category: Database
+    Cause:
+      - Resource Shortage:
+        - Temp DB Full
+        - Concurrent Treatments
+
+  - Incident: Treatments fail in Database as Tablespace is full.
+    Category: Database
+    Cause:
+      - Data Overload:
+        - Heavy Data Inserts
+        - Inadequate Space Management
+
+  - Incident: Informatica down due to DB issue.
+    Category: Database
+    Cause:
+      - Connection Problems:
+        - Database Unavailability
+        - Network Disruptions
+
+  - Incident: Application stopped after DB release.
+    Category: Database
+    Cause:
+      - Misconfiguration:
+        - Wrong DB Release
+        - Incompatible Dependencies
+
+  - Incident: Application not accessible due to disk crash.
+    Category: Database
+    Cause:
+      - Storage Failures:
+        - Disk Errors
+        - Data Corruption
+
+  - Incident: Batch failed due to DB connectivity issue.
+    Category: Database
+    Cause:
+      - Network Problems:
+        - Database Server Unreachable
+        - Connection Timeouts
+
+  - Incident: Application GUI down.
+    Category: Application
+    Cause:
+      - Web Server Issues:
+        - Web Server Crash
+        - Application Hangs
+
+  - Incident: Hardware Failure causes server unavailability.
+    Category: Server Outage
+    Cause:
+      - Component Failures:
+        - CPU Failure
+        - Memory Failure
+
+  - Incident: Power Supply Issues result in unexpected server shutdown.
+    Category: Server Outage
+    Cause:
+      - Power Interruptions:
+        - Power Surges
+        - Power Supply Failures
+
+  - Incident: Network Connectivity Problems isolate servers.
+    Category: Server Outage
+    Cause:
+      - Network Failures:
+        - Network Switch Failure
+        - Cable Disconnections
+
+  - Incident: Software Crashes make servers unusable.
+    Category: Server Outage
+    Cause:
+      - Software Errors:
+        - Bugs in Running Software
+        - Memory Leaks
+
+  - Incident: Resource Exhaustion affects server performance.
+    Category: Server Outage
+    Cause:
+      - Resource Mismanagement:
+        - CPU Overload
+        - Memory Hogging
+
+  - Incident: Index Fragmentation leads to slow query execution.
+    Category: Database Performance Degradation
+    Cause:
+      - Database Structure Issues:
+        - Fragmented Indexes
+        - Outdated Statistics
+
+  - Incident: DNS Resolution Failures cause web service problems.
+    Category: Network Connectivity Issues
+    Cause:
+      - DNS Server Issues:
+        - DNS Server Unavailable
+        - Incorrect DNS Configurations
+
+  - Incident: Firewall Blocking prevents resource access.
+    Category: Network Connectivity Issues
+    Cause:
+      - Security Configurations:
+        - Unauthorized Access Attempts
+        - Misconfigured Firewall Rules
+
+  - Incident: Application crashes due to mismatched library versions.
+    Category: Application
+    Cause:
+      - Dependency Issues:
+        - Incompatible Library Versions
+        - Missing Required Libraries
+
+  - Incident: Memory Leaks cause application crashes.
+    Category: Application Performance Drop
+    Cause:
+      - Resource Management:
+        - Poor Memory Deallocation
+        - Excessive Memory Consumption
+
+  - Incident: Data Format Incompatibility hinders import.
+    Category: Data Import Failure
+    Cause:
+      - Data Structure Mismatches:
+        - Incorrect Data Format
+        - Encoding Issues
+
+  - Incident: Files created in upstream but 0 kb files in downstream.
+    Category: Application Performance Drop
+    Cause:
+      - File System Errors:
+        - Insufficient Permissions
+        - Directory Path Not Found
+      - Deadlock in File Transfer:
+        - Overlapping Transfer Jobs
+        - Resource Contention
+      - Connection Issues:
+        - Network Connection Failure
+        - Firewall Blocking
+
+  - Incident: Application Log4J Error Critical Logging Failure Detected
+    Category: Application
+    Cause:
+      - Configuration Errors:
+        - Incorrect log level configuration
+        - Misconfigured log appenders
+      - Compatibility Issues:
+        - Incompatible Log4J library version
+        - Conflicts with other logging frameworks
+      - Software Bugs:
+        - Log4J library bugs
+        - Interactions with specific code paths
